@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring</title>
+    <style>
+      body {
+        background-color: #fafafa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden; /* Prevent emojis from scrolling outside the viewport */
+      }
+
+      h1 {
+        font-size: 6em;
+        color: #f06292; /* Pink color for cherry blossom */
+        position: relative;
+        z-index: 1; /* Ensure text is above emojis */
+        animation: moveText 10s infinite alternate linear; /* Animation for text */
+      }
+
+      .emoji {
+        font-size: 2em;
+        position: absolute;
+        top: -10vh; /* Start above the viewport */
+        animation: fall 3s linear infinite; /* Falling animation */
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10vh; /* Start above the viewport */
+        }
+        100% {
+          top: 110vh; /* End below the viewport */
+        }
+      }
+
+      @keyframes moveText {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Spring</h1>
+    <script>
+      // Array of emojis
+      const emojis = ["🌸", "🌺", "🌼", "🌷", "🌹", "🪻"];
+
+      // Function to generate emojis
+      function generateEmojis() {
+        emojis.forEach((emoji, index) => {
+          // Create span element for emoji
+          const span = document.createElement("span");
+          span.classList.add("emoji");
+          span.textContent = emoji;
+
+          // Randomize position and delay
+          const position = Math.random() * 100; // Random position between 0 and 100
+          const delay = Math.random() * 3; // Random delay between 0 and 3 seconds
+          span.style.left = position + "vw"; // Set left position
+          span.style.animationDelay = delay + "s"; // Set animation delay
+
+          // Append emoji to body
+          document.body.appendChild(span);
+        });
+      }
+
+      // Generate emojis
+      generateEmojis();
+    </script>
+  </body>
+</html>
