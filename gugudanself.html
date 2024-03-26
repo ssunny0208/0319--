@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>구구단</title>
+    <title>구구단과 곱셈 계산기</title>
     <script>
       function showGuGudan(num) {
         let resultContainer = document.getElementById("output");
@@ -12,16 +12,32 @@
 
         for (let i = 1; i <= 9; i++) {
           let line = document.createElement("div");
-          line.innerHTML = num + " x " + i + " = " + num * i;
+          line.textContent = num + " x " + i + " = " + num * i;
           result.appendChild(line);
         }
         resultContainer.innerHTML = "";
         resultContainer.appendChild(result);
       }
+
+      function calculateMultiplication() {
+        let multiplicand = parseInt(
+          document.getElementById("multiplicand").value
+        );
+        let multiplier = parseInt(document.getElementById("multiplier").value);
+        let resultContainer = document.getElementById("multiplication-result");
+
+        if (isNaN(multiplicand) || isNaN(multiplier)) {
+          resultContainer.textContent = "유효한 숫자를 입력하세요.";
+        } else {
+          let result = multiplicand * multiplier;
+          resultContainer.textContent =
+            multiplicand + " x " + multiplier + " = " + result;
+        }
+      }
     </script>
   </head>
   <body>
-    <h1>구구단</h1>
+    <h1>구구단과 곱셈 계산기</h1>
     <div class="button-container">
       <!-- 1단부터 9단까지 버튼 생성 -->
       <button onclick="showGuGudan(1)">1단</button>
@@ -35,5 +51,13 @@
       <button onclick="showGuGudan(9)">9단</button>
     </div>
     <div id="output"></div>
+
+    <h2>곱셈 계산기</h2>
+    <label for="multiplicand">곱할 숫자:</label>
+    <input type="text" id="multiplicand" placeholder="숫자를 입력하세요" />
+    <label for="multiplier">곱하는 숫자:</label>
+    <input type="text" id="multiplier" placeholder="숫자를 입력하세요" />
+    <button onclick="calculateMultiplication()">계산하기</button>
+    <div id="multiplication-result"></div>
   </body>
 </html>
