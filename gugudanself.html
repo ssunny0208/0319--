@@ -12,7 +12,7 @@
 
         for (let i = 1; i <= 9; i++) {
           let line = document.createElement("div");
-          line.textContent = num + " x " + i + " = " + num * i;
+          line.innerHTML = num + " x " + i + " = " + num * i;
           result.appendChild(line);
         }
         resultContainer.innerHTML = "";
