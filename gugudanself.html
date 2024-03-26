@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    function showGuGudan(num) {
+      var output = document.getElementById("output");
+      output.innerHTML = "";
+
+      for (var i = 1; i <= 9; i++) {
+        var result = num * i;
+        output.innerHTML += num + " × " + i + " = " + result + "<br>";
+      }
+    }
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단</title>
+  </head>
+  <body>
+    <h1>구구단</h1>
+    <div class="button-container">
+      <!-- 1단부터 9단까지 버튼 생성 -->
+      <button onclick="showGuGudan(1)">1단</button>
+      <button onclick="showGuGudan(2)">2단</button>
+      <button onclick="showGuGudan(3)">3단</button>
+      <button onclick="showGuGudan(4)">4단</button>
+      <button onclick="showGuGudan(5)">5단</button>
+      <button onclick="showGuGudan(6)">6단</button>
+      <button onclick="showGuGudan(7)">7단</button>
+      <button onclick="showGuGudan(8)">8단</button>
+      <button onclick="showGuGudan(9)">9단</button>
+    </div>
+    <div id="output"></div>
+  </body>
+</html>
